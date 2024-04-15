@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { LngLat, Map } from 'mapbox-gl';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   templateUrl: './zoom-range-page.component.html',
@@ -20,6 +21,7 @@ export class ZoomRangePageComponent implements AfterViewInit, OnDestroy {
     this.map = new Map({
       container: this.divMap?.nativeElement, // container ID
       style: 'mapbox://styles/mapbox/streets-v12', // style URL
+      accessToken: environment.mapbox_key,
       center: this.currentLngLat,
       zoom: this.zoom, // starting zoom
     });
